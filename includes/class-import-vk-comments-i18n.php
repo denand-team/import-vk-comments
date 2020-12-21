@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://github.com/denand-team/
+ * @link       https://showspy.ru
  * @since      1.0.0
  *
  * @package    Import_Vk_Comments

@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://github.com/denand-team/
+ * @link       https://showspy.ru
  * @since      1.0.0
  *
  * @package    Import_Vk_Comments

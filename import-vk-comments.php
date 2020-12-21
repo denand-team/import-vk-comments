@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://github.com/denand-team/
+ * @link              https://showspy.ru
  * @since             1.0.0
  * @package           Import_Vk_Comments
  *
  * @wordpress-plugin
  * Plugin Name:       Import Vk Comments
- * Plugin URI:        https://github.com/denand-team/import-vk-comments/
+ * Plugin URI:        https://github.com/denand-team/import-vk-comments
  * Description:       Плагин импортирует комментарии из виджета комментариев ВК в WordPress.
  * Version:           1.0.0
  * Author:            DenAnd
- * Author URI:        https://github.com/denand-team/
+ * Author URI:        https://showspy.ru
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       import-vk-comments

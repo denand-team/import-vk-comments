@@ -1,6 +1,6 @@
 === Import Vk Comments ===
 Contributors: syblog
-Donate link: https://github.com/denand-team/
+Donate link: https://showspy.ru
 Tags: comments, vk, vkontakte, vk.com, widget, export, import, комментарии, перенос, импорт, экспорт
 Requires at least: 5.0.1
 Requires PHP: 7.1

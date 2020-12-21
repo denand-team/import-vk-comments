@@ -3,7 +3,7 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       https://github.com/denand-team/
+ * @link       https://showspy.ru
  * @since      1.0.0
  *
  * @package    Import_Vk_Comments
