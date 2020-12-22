@@ -118,8 +118,8 @@ class Import_Vk_Comments_Admin {
 	 * @since    1.0.0
 	 */
 	public function import_vk_comments_settings() {
-		register_setting( 'import_vk_comments_settings', 'ivc_access_token' );
-		register_setting( 'import_vk_comments_settings', 'ivc_client_id' );
+		register_setting( 'import_vk_comments_settings', 'ivc_access_token', 'esc_attr' );
+		register_setting( 'import_vk_comments_settings', 'ivc_client_id', 'esc_attr' );
 	}
 
 	/**
@@ -169,8 +169,8 @@ class Import_Vk_Comments_Admin {
 		$key = 0;
 		foreach ($pages['pages'] as $page) {
 			if($page['comments']['count'] > 0) {
-				$comments[$key]['url'] = $page['url'];
-				$comments[$key]['count'] = $page['comments']['count'];
+				$comments[$key]['url'] = esc_url_raw($page['url']);
+				$comments[$key]['count'] = sanitize_text_field($page['comments']['count']);
 				$key++;
 			}
 		}
@@ -184,8 +184,8 @@ class Import_Vk_Comments_Admin {
 				$pages = $vk->widgets()->getPages($access_token, $request);
 				foreach ($pages['pages'] as $page) {
 					if($page['comments']['count'] > 0) {
-						$comments[$key]['url'] = $page['url'];
-						$comments[$key]['count'] = $page['comments']['count'];
+						$comments[$key]['url'] = esc_url_raw($page['url']);
+						$comments[$key]['count'] = sanitize_text_field($page['comments']['count']);
 						$key++;
 					}
 				}
@@ -206,11 +206,11 @@ class Import_Vk_Comments_Admin {
 	 * @since    1.0.0
 	 */
 	public function get_comments() {
-		var_dump($_GET);
 		require_once (plugin_dir_path( __DIR__ ).'vendor/autoload.php');
 
+		$url = esc_url_raw($_GET['url']);
 		// Получаем ID записи в Wordpress
-		$postid = url_to_postid($_GET['url']);
+		$postid = url_to_postid($url);
 
 		// Если не найден ID поста Wordpress, выходим из функции
 		if ($postid == 0) {
@@ -223,7 +223,7 @@ class Import_Vk_Comments_Admin {
 
 		$request = [
 			'widget_api_id' => [get_option( 'ivc_client_id' )],
-			'url' => $_GET['url'],
+			'url' => $url,
 			'count' => [200],
 			'order' => ['date'],
 		];
@@ -253,11 +253,11 @@ class Import_Vk_Comments_Admin {
 		foreach ($comments['posts'] as $key => $comment) {
 			$postcomments[$key]['comment_type'] = 'comment';
 			$postcomments[$key]['comment_post_ID'] = $postid;
-			$postcomments[$key]['comment_content'] = $comment['text'];
-			$postcomments[$key]['comment_date'] = date('Y-m-d H:i:s', $comment['date']);
-			$postcomments[$key]['comment_date_gmt'] = date('Y-m-d H:i:s', ($comment['date'] - 60*60*3));
+			$postcomments[$key]['comment_content'] = sanitize_textarea_field($comment['text']);
+			$postcomments[$key]['comment_date'] = date('Y-m-d H:i:s', sanitize_text_field($comment['date']));
+			$postcomments[$key]['comment_date_gmt'] = date('Y-m-d H:i:s', (sanitize_text_field($comment['date']) - 60*60*3));
 			$postcomments[$key]['comment_approved'] = '0';
-			$postcomments[$key]['comment_author_email'] = $comment['from_id'].'@vk.com';
+			$postcomments[$key]['comment_author_email'] = sanitize_text_field($comment['from_id']).'@vk.com';
 			$postcomments[$key]['comment_author_url'] = '';
 			$postcomments[$key]['comment_parent'] = '0';
 			$postcomments[$key]['user_id'] = '0';
@@ -268,9 +268,9 @@ class Import_Vk_Comments_Admin {
 				if($comment['from_id'] == $username['id']) {
 					if($username['first_name'] == 'DELETED') {
 						$altnames = array('User', 'Commentator', 'Anonymous', 'Person', 'Unnamed', 'Anon');
-						$postcomments[$key]['comment_author'] = $altnames[array_rand($altnames)].$comment['from_id'];
+						$postcomments[$key]['comment_author'] = $altnames[array_rand($altnames)].sanitize_text_field($comment['from_id']);
 					} else {
-						$postcomments[$key]['comment_author'] = $username['first_name'].' '.$username['last_name'];
+						$postcomments[$key]['comment_author'] = sanitize_text_field($username['first_name'].' '.$username['last_name']);
 					}
 					break;
 				}

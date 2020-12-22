@@ -1,4 +1,4 @@
-# Import VK Comments WordPress Plugin [documents-from-git](https://wordpress.org/plugins/import-vk-comments/)
+# Import [VK Comments WordPress Plugin](https://wordpress.org/plugins/import-vk-comments/)
 
 WordPress Plugin for importing comments from VK.com widgets to sites, running WP.
 
@@ -13,7 +13,7 @@ WordPress Plugin for importing comments from VK.com widgets to sites, running WP
 
 **Min**: v5.0
 
-**Tested up to**: 5.4.6
+**Tested up to**: 5.6
 
 ## Contributors
 - DenAndTeam: denandteam@gmail.com

@@ -24,8 +24,8 @@ echo '
 settings_fields( 'import_vk_comments_settings' );
 do_settings_sections( 'import_vk_comments_settings' );
 echo '<table class="form-table">
-				<tr valign="top"><th scope="row">ID виджета комментариев:</th><td><input type="text" name="ivc_client_id" value="'.get_option( 'ivc_client_id' ).'"/><br><em>widget_id</em></td></tr>
-                <tr valign="top"><th scope="row">Сервисный ключ доступа:</th><td><input type="text" name="ivc_access_token" value="'.get_option( 'ivc_access_token' ).'"/><br><em>service_token</em></td></tr>
+				<tr valign="top"><th scope="row">ID виджета комментариев:</th><td><input type="number" name="ivc_client_id" value="'.get_option( 'ivc_client_id' ).'" required/><br><em>widget_id</em></td></tr>
+                <tr valign="top"><th scope="row">Сервисный ключ доступа:</th><td><input type="text" name="ivc_access_token" value="'.get_option( 'ivc_access_token' ).'" required/><br><em>service_token</em></td></tr>
 				</td></tr>				
 				</table>';
 submit_button();
