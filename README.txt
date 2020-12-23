@@ -1,5 +1,5 @@
 === Import Vk Comments ===
-Contributors: syblog
+Contributors: denandteam
 Donate link: https://showspy.ru
 Tags: comments, vk, vkontakte, vk.com, widget, export, import, комментарии, перенос, импорт, экспорт
 Requires at least: 5.0.1
@@ -50,12 +50,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * Создание плагина.
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.0 =
 Первая версия плагина, тестируем и ищем ошибки.
 
 `<?php code(); // goes in backticks ?>`
