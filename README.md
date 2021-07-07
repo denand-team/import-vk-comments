@@ -2,7 +2,7 @@
 
 WordPress Plugin for importing comments from VK.com widgets to sites, running WP.
 
-Плагин разработан для [сайта даты выхода сериалов](https://showspy.ru/) и в дальнейшем будет поддерживаться через GitHub.
+Плагин разработан для [сайта даты выхода сериалов](https://tvdate.ru) и в дальнейшем будет поддерживаться через GitHub.
 
 ## Usage
 
